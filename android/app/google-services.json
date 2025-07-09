@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1057691350660",
+    "project_id": "cleanrail-c3260",
+    "storage_bucket": "cleanrail-c3260.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057691350660:android:1eb0980a0ded13fd3434d1",
+        "android_client_info": {
+          "package_name": "com.example.myrailway"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmv15f9082cVHGNUOdaWNjT3jv3sk66VI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
