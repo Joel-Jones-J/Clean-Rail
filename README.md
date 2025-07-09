@@ -1,214 +1,233 @@
-Indian Railways Inspection Portal
-This Flutter application serves as a comprehensive portal for managing train and platform inspections within the Indian Railways system. It provides functionalities for conducting detailed inspections, uploading train data, generating PDF reports, and managing user authentication.
+# 🚆 Indian Railways Inspection Portal
 
-Features
-User Authentication: Secure login and logout functionality using Firebase Authentication.
+This Flutter application serves as a comprehensive portal for managing **train** and **platform inspections** within the Indian Railways system. It provides functionalities for conducting detailed inspections, uploading train data, generating PDF reports, and managing user authentication.
 
-Dashboard: Centralized hub for navigating to different inspection modules.
+---
 
-Train Interior Inspection:
+## 🔧 Features
 
-Input/load train number, coach number, and inspection date.
+### ✅ User Authentication
+- Secure login and logout using **Firebase Authentication**.
 
-Detailed inspection parameters for interior cleanliness, seating, windows, lights, fans/AC, toilets, dustbins, doors, emergency equipment, and information displays.
+### 🏠 Dashboard
+- Centralized hub for accessing all inspection and data upload modules.
 
-Intuitive slider for rating each parameter from 0 to 10.
+---
 
-Option to add remarks for each inspection parameter.
+### 🚆 Train Interior Inspection
+- Input/load **Train Number**, **Coach Number**, and **Inspection Date**.
+- Inspect key parameters:
+  - Cleanliness
+  - Seating
+  - Windows
+  - Lights
+  - Fans/AC
+  - Toilets
+  - Dustbins
+  - Doors
+  - Emergency Equipment
+  - Information Displays
+- Rate each parameter (0–10) via sliders.
+- Add remarks for each inspection.
+- **Firestore** persistence – load past inspections for a given train.
 
-Data persistence using Firestore, allowing loading of previous inspection data for a given train.
+---
 
-Platform Management:
+### 🛤️ Platform Management
+- Input/load **Station Name** and **Inspection Date**.
+- Inspect key parameters:
+  - Platform Cleanliness
+  - Drainage
+  - Seating
+  - Dustbins
+  - Signage
+  - Urinals/Toilets
+  - Water Booths
+  - Waiting Rooms
+  - Subways/FOBs
+  - Station Approach
+- Rate each parameter (0–10) and add remarks.
+- Data saved to **Firestore**.
 
-Input/load station name and inspection date.
+---
 
-Detailed inspection parameters for platform cleanliness, drainage, seating, dustbins, signage, urinals/toilets, water booths, waiting rooms, subways/FOBs, and station approach.
+### 📤 Upload Train Data
+- Add new train details:
+  - Train Number & Name
+  - Train Type: **Passenger** or **Express**
+- Passenger:
+  - Enter number of coaches (e.g., C1, C2…)
+- Express:
+  - Define **Unreserved (UR)** and **Reserved** coaches (e.g., A1, S1, B1…)
+- Prevents duplicate entries.
+- View uploaded train data (from Firestore).
 
-Slider for rating and remarks for each parameter.
+---
 
-Data persistence using Firestore for station inspection data.
+### 📄 PDF Reports
+- Generate reports for:
+  - **Station Inspections**
+  - **Train Interior Inspections**
+- Input required identifier (Station Name or Train Number).
+- Generates detailed PDF including:
+  - Inspection Parameters
+  - Marks
+  - Remarks
+  - Metadata (date, time, etc.)
+- **Auto-download and open** PDFs on mobile and desktop.
 
-Upload Train Data:
+---
 
-Upload new train details (train number, train name).
+### 📱 UI/UX
+- Fully **Responsive** design.
+- Smooth transitions using:
+  - `animate_do`
+  - `lottie`
 
-Select train type (Passenger or Express).
+---
 
-For Passenger trains: Specify total number of coaches (C1, C2, etc.).
+## 🛠️ Technologies Used
 
-For Express trains: Specify number of Unreserved (UR) and Reserved coaches, with dynamic input fields for custom coach names (e.g., A1, S1, B1).
+- **Flutter** – Cross-platform UI toolkit  
+- **Dart** – Programming language  
+- **Firebase**
+  - Firestore – Cloud NoSQL DB
+  - Firebase Auth – Secure login
 
-Prevents duplicate train names.
+### 📦 Dependencies
+- `animate_do` – UI animations  
+- `intl` – Date/time formatting  
+- `lottie` – Animated loaders  
+- `pdf` – PDF generation  
+- `path_provider` – Access device storage  
+- `permission_handler` – Manage permissions  
+- `open_filex` – Open generated PDFs  
+- `collection` – Utilities like `firstWhereOrNull`  
+- `google_fonts` – Custom fonts  
 
-Displays existing train data from Firestore.
+---
 
-PDF Reports:
+## ⚙️ Setup & Installation
 
-Generate PDF reports for both Station Inspections and Train Interior Inspections.
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Joel-Jones-J/Train_Station_Evaluation_Project.git
+cd Train_Station_Evaluation_Project
 
-User inputs the required identifier (Station Name or Train Number) to fetch data.
 
-PDFs include detailed inspection parameters, marks, remarks, and relevant metadata.
+2. Install Flutter
+Follow the Flutter installation guide if not already installed.
 
-Automatic download and opening of generated PDFs on mobile/desktop platforms.
-
-Responsive UI: Designed to be visually appealing and functional across various screen sizes.
-
-Animations: Utilizes animate_do and lottie for smooth UI transitions and loading indicators.
-
-Technologies Used
-Flutter: Cross-platform UI toolkit.
-
-Firebase:
-
-Firestore: NoSQL cloud database for storing inspection data and train details.
-
-Firebase Auth: For user authentication.
-
-Dart: Programming language.
-
-Packages:
-
-animate_do: For beautiful animations.
-
-intl: For date and time formatting.
-
-lottie: For animated loading overlays.
-
-pdf: For generating PDF documents.
-
-path_provider: For accessing file system paths on the device.
-
-permission_handler: For requesting necessary permissions (e.g., storage).
-
-open_filex: For opening generated PDF files.
-
-collection: For utility functions like firstWhereOrNull.
-
-google_fonts: For custom fonts.
-
-Setup and Installation
-To get this project up and running on your local machine, follow these steps:
-
-Clone the repository:
-
-git clone <your-repository-url>
-cd indian_railways_portal
-
-Install Flutter:
-If you don't have Flutter installed, follow the official installation guide: Flutter Get Started
-
-Install dependencies:
-
+3. Install Dependencies
+bash
+Copy
+Edit
 flutter pub get
+4. Firebase Setup
+Go to Firebase Console
 
-Firebase Setup:
+Create a new project
 
-Create a Firebase Project: Go to the Firebase Console and create a new project.
+Add Android/iOS/Web apps and download:
 
-Add Android/iOS/Web apps to your Firebase project: Follow the instructions to register your Flutter app with Firebase. Download and place google-services.json (Android) and GoogleService-Info.plist (iOS) in the correct directories.
+google-services.json (Android) → Place in android/app/
 
-Enable Firestore: In the Firebase Console, navigate to "Firestore Database" and create a new database. Choose "Start in production mode" or "Start in test mode".
+GoogleService-Info.plist (iOS) → Place in ios/Runner/
 
-Enable Authentication: In the Firebase Console, navigate to "Authentication" and enable "Email/Password" sign-in method.
+Enable:
 
-Add Assets:
+Firestore Database
 
-Ensure you have the following image assets in your assets/ folder (or update the paths in the code):
+Email/Password Authentication
 
-assets/app_logo.png (for dashboard_page)
+🖼️ Assets Setup
+Place the following inside the assets/ folder:
 
-assets/background.png (for login_page)
 
-assets/light-1.png (for login_page)
+assets/
+├── app_logo.png
+├── background.png
+├── light-1.png
+├── light-2.png
+├── clock.png
+├── loading_login.json
+├── platform_view.png
+├── train_interior.png
+Update pubspec.yaml:
 
-assets/light-2.png (for login_page)
-
-assets/clock.png (for login_page)
-
-assets/loading_login.json (your Lottie animation for login_page)
-
-assets/platform_view.png (for home_page)
-
-assets/train_interior.png (for home_page)
-
-Update pubspec.yaml to include these assets:
 
 flutter:
   uses-material-design: true
   assets:
     - assets/
-
-Run the application:
+▶️ Run the Application
 
 flutter run
+🧑‍💻 Usage Instructions
+🔐 Login
+Use your Firebase-authenticated email & password.
 
-Usage
-Login: Use your Firebase authenticated email and password to log in.
+🏠 Dashboard Navigation
+Train Operations – Inspect train interiors.
 
-Dashboard: From the dashboard, you can navigate to:
+Platform Management – Inspect stations.
 
-Train Operations: To perform train interior inspections.
+PDF Reports – Generate reports.
 
-Platform Management: To perform station platform inspections.
+Upload Train Data – Add train info.
 
-PDF Reports: To generate and view reports.
+📝 Inspections
+Enter Train Number/Station Name, Coach Number, and Date.
 
-Upload Train Data: To add new train details to the system.
+Rate each parameter (0–10) and add remarks.
 
-Inspections:
+Submit – data is saved to Firestore.
 
-Enter the required details (Train Number/Station Name, Coach Number/Date).
+📤 Upload Train Data
+Enter train info and type.
 
-Use the sliders to rate each inspection parameter from 0-10.
+Input coach data (custom names for Express).
 
-Add optional remarks.
+Submit to Firestore.
 
-Submit the data, which will be saved to Firestore.
+📄 Generate PDF
+Select inspection type.
 
-Upload Train Data:
+Enter identifier (Train No. or Station Name).
 
-Fill in the train details.
+Auto-generate and open PDF.
 
-Select the train type and input the number of coaches.
+📁 File Structure
 
-For Express trains, provide custom coach names.
+lib/
+├── main.dart
+├── login_page.dart
+├── home_page.dart
+├── dashboard_page.dart
+├── platform_page.dart
+├── train_inspection_interior.dart
+├── upload_train_data.dart
+├── pdf_page.dart
+├── activity_rating_page.dart (if used)
+assets/
+🤝 Contributing
+Contributions are welcome!
+Please open an Issue or submit a Pull Request.
 
-Click "Upload Train Data" to save.
+📝 License
+This project is licensed under the MIT License – see the LICENSE file for details.
 
-PDF Reports:
+📬 Contact
+Joel Jones J
+📱 +91 8438697642
+📧 Feel free to reach out for suggestions or collaborations.
 
-Select the type of report (Station or Train Interior).
 
-Enter the required identifier (Station Name or Train Number).
 
-The app will fetch data and generate a PDF, which will then automatically open.
 
-File Structure
-lib/: Contains all the Dart source code.
 
-main.dart: Entry point of the application.
 
-login_page.dart: User authentication screen.
 
-home_page.dart: Main navigation hub after login.
 
-dashboard_page.dart: Train inspection initiation and overview.
 
-platform_page.dart: Station platform inspection module.
 
-train_inspection_interior.dart: Detailed train interior inspection form (if separated from dashboard).
-
-upload_train_data.dart: Page for uploading new train information.
-
-pdf_page.dart: Page for generating and viewing PDF reports.
-
-activity_rating_page.dart: (If used as a separate route for rating individual activities).
-
-assets/: Contains images and Lottie animation files.
-
-Contributing
-Contributions are welcome! If you find a bug or want to add a new feature, please open an issue or submit a pull request.
-
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
